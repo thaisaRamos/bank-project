@@ -4,11 +4,14 @@ import java.io.Serializable;
 
 public class Account implements Serializable{
 	
-	private int id;
 	private User user;
 	private String accountNumber;
 	private String agencyNumber;
 	private double cash;
+	
+	public Account(){
+	}
+	
 	public User getUser() {
 		return user;
 	}
@@ -33,12 +36,4 @@ public class Account implements Serializable{
 	public void setCash(double cash) {
 		this.cash = cash;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-
 }

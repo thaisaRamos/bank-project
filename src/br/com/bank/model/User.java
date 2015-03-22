@@ -3,11 +3,13 @@ package br.com.bank.model;
 import java.io.Serializable;
 
 public class User implements Serializable{
-	
-	private int id;
+
+	private String cpf;
 	private String name;
-	private Account account;
-	
+
+	public User(){
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -16,20 +18,11 @@ public class User implements Serializable{
 		this.name = name;
 	}
 
-	public Account getAccount() {
-		return account;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setAccount(Account account) {
-		this.account = account;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-		
 }

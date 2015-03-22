@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+     
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
+        <title>Bank</title>
+    </h:head>
+     
+     
+    <h:body>
+     
+            <h:form>
+            
+                <h:outputText value="#{bank.bankWelcome}"/><br/><br/>
+                
+                <b>Account Operations</b> <br/>
+                Agency: <h:inputText id="agencyNumber" value="#{bank.agNumber}"/><br/>
+                Account: <h:inputText id="AccountNumber" value="#{bank.accNumber}"/><br/>
+                Debit Value: <h:inputText id="debitValue" value="#{bank.debitValue}"/><br/>
+                Credit Value: <h:inputText id="creditValue" value="#{bank.creditValue}"/><br/>           
+                <h:commandButton value="Do Operations" title="Do Operations" action="#{bank.doOperations}"/><br/><br/>
+                
+               <b> Transfers</b> <br/>
+                Source Account: <h:inputText id="sAccountNumber" value="#{bank.sAccNumber}"/><br/>
+                Source Agency: <h:inputText id="sAgencyNumber" value="#{bank.sAgNumber}"/><br/>
+                Target Account: <h:inputText id="tAccountNumber" value="#{bank.tAccNumber}"/><br/>
+                Target Agency: <h:inputText id="tAgencyNumber" value="#{bank.tAgNumber}"/><br/>
+                Transfer Value: <h:inputText id="transferValue" value="#{bank.transferValue}"/><br/>
+                <h:commandButton value="Do Transfer" title="Do Transfer" action="#{bank.doTransfer}"/><br/><br/>
+               	
+               	<h:commandButton value="Accounts List" action="#{bank.toListAccounts}" />
+	
+                                                
+            </h:form>
+    </h:body>
+</html>
