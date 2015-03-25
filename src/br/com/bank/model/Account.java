@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class Account implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private User user;
 	private String accountNumber;
 	private String agencyNumber;

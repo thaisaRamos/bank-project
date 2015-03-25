@@ -3,6 +3,7 @@ package br.com.bank.pattern.command;
 import br.com.bank.model.Account;
 
 public class DebitCommand implements IBankCommand{
+	
 	private Account account;
 	private double cash;
 	

@@ -1,14 +1,13 @@
 package br.com.bank.controller;
 
+import java.io.FileNotFoundException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
-import sun.security.jca.GetInstance;
 import br.com.bank.model.Account;
 import br.com.bank.pattern.command.BalanceCommand;
 import br.com.bank.pattern.command.CreditCommand;
@@ -17,9 +16,14 @@ import br.com.bank.pattern.command.IBankCommand;
 import br.com.bank.persistence.StorageMemory;
 
 @ManagedBean (name = "bank")
-@RequestScoped
-public class Bank implements Serializable {
+@SessionScoped
+public class BankBean implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String accNumber;
 	private String agNumber;
 	private double debitValue;
@@ -42,7 +46,7 @@ public class Bank implements Serializable {
 
 	private final String bankWelcome = "Welcome to the bank!";
 
-	public Bank(){
+	public BankBean() throws FileNotFoundException{
 		storage = StorageMemory.getInstance();
 	}
 
@@ -66,10 +70,10 @@ public class Bank implements Serializable {
 
 		bank = new DebitCommand(acc, debitValue);
 		bank.execute();
-
+		
 		bank = new BalanceCommand (acc);
 		balanceValue = (String) bank.execute();
-
+		
 		return "result.xhtml";
 	}
 	
@@ -92,8 +96,8 @@ public class Bank implements Serializable {
 		return "transferResult.xhtml";
 	}
 	
-	public String toListAccounts() {
-		accountsList = storage.getInstance().getAccounts();
+	public String toListAccounts() throws FileNotFoundException {
+		accountsList = storage.getAccounts();
 		return "accountsList.xhtml";
 	}
 

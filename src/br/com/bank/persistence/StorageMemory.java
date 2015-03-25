@@ -1,5 +1,6 @@
 package br.com.bank.persistence;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,17 +9,17 @@ import br.com.bank.model.User;
 
 public class StorageMemory {
 
-	private static StorageMemory instance;
+	private static StorageMemory instance = null;
 
 	private List<Account> accounts;
 
-	private StorageMemory(){
+	private StorageMemory() throws FileNotFoundException{
 		accounts = new ArrayList<Account>();
 		makeInitialStorage();
 	}
 
-	public void makeInitialStorage() {
-
+	public void makeInitialStorage() throws FileNotFoundException {
+		
 		User user1 = new User();
 		user1.setName("Renato");
 		user1.setCpf("06159242474");
@@ -38,10 +39,9 @@ public class StorageMemory {
 		acc2.setCash(100);
 		acc2.setUser(user2);
 		accounts.add(acc2);
-
 	}
 
-	public static StorageMemory getInstance(){
+	public static StorageMemory getInstance() throws FileNotFoundException{
 		if (instance == null) {
 			return new StorageMemory();
 		}
