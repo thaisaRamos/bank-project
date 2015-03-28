@@ -11,7 +11,8 @@
          
     <h:body>
         <h:form>
-        Crédito no valor R$ <h:outputText value="#{bank.creditValue}"/> para a conta <h:outputText value="#{bank.accNumber}"/> realizado com sucesso.
+        Crédito no valor R$ <h:outputText value="#{bank.creditValue}"/> para a conta <h:outputText value="#{bank.accNumber}"/> realizado com sucesso.<br/>
+         Débito no valor R$ <h:outputText value="#{bank.debitValue}"/> para a conta <h:outputText value="#{bank.accNumber}"/> realizado com sucesso.<br/>
             Account Balance: R$ <h:outputText value="#{bank.balanceValue}"/>
         </h:form>
     </h:body>
